@@ -57,13 +57,16 @@
 					  oyunAdi : oyunAd
 				  },
   				success: function(data){
-					  console.log(data);
+					  //önceki checkleri sil
+					$('input:checkbox').removeAttr('checked');
+					//checkleme
+					  $.each(data, function( index, value ) {
+						$('input[value="'+value.p_ad+'"]').prop("checked", true);
+					  });
+
 					console.log("success");
 				  }
 			});
-
-
-
 
             /*$.get('OyunPlatformAjax.php',{"oyunAdi":oyunAd},function(result){
 				console.log(result);
